@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Passphrase Generator</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+
+  <style>
+    body {
+      margin-top: 100px;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container mt-10">
+    <h1 class="display-3 text-center mb-5">Passphrase Generator</h1>
+    
+
+        <form>
+            <!-- Input Box -->
+            <div class="form-group">
+              <div class="input-group">
+                <input class="form-control form-control-lg text-center" type="text" name="password" id="password">
+                <div class="input-group-append">
+                  <button href="#" class="btn btn-outline-success" type="button" id="refreshButton"><i class="fas fa-sync-alt"></i></i></button>
+                  <button href="#" class="btn btn-outline-secondary" type="button" id="copyButton" data-toggle="tooltip" data-trigger="manual" data-title="Copied!"><i class="fas fa-copy"></i></button>
+
+                </div>
+              </div>
+              
+            </div>
+            
+
+            
+            <!-- Checklists -->
+            <div class="row justify-content-center">
+              <div class="form-group">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input uppercase-check" type="checkbox" id="inlineCheckbox1" value="uppercase">
+                  <label class="form-check-label" for="inlineCheckbox1">Uppercase</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input numbers-check" type="checkbox" id="inlineCheckbox2" value="numbers">
+                  <label class="form-check-label" for="inlineCheckbox2">Numbers</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input specialchars-check" type="checkbox" id="inlineCheckbox3" value="specialchars">
+                  <label class="form-check-label" for="inlineCheckbox3">Special Chars</label>
+                </div>
+              </div>
+              
+
+            </div>
+
+            <div class="row justify-content-center">
+              <!-- Range for amount of words -->
+              <div class="col-8 col-sm-8 col-md-6 col-lg-4 col-xl-4">
+                <div class="form-group">
+                  <input type="range" class="form-control-range passSize" id="formControlRange" min="1" max="7" value="3">
+                  <div class="text-center">
+                    <label for="formControlRange">Amount of Words</label>
+                  </div>
+                </div>
+              </div>
+              
+            </div>
+            
+            
+    
+            
+
+            
+
+        </form>    
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <!-- Custom JS -->
+  <script src="app.js"></script>
+</body>
+</html>
