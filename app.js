@@ -26,6 +26,25 @@ document.querySelector(".numbers-check").addEventListener('change', numbers);
 // Special Chars event
 document.querySelector(".specialchars-check").addEventListener('change', specialchars);
 
+// Spaces event
+document.querySelector("#first").addEventListener('change', () => {
+  const separator = " ";
+  changeConnector(separator);
+});
+
+// Underscores event
+document.querySelector("#second").addEventListener('change', () => {
+  const separator = "_";
+  changeConnector(separator);
+});
+
+// Dashes event
+document.querySelector("#third").addEventListener('change', () => {
+  const separator = "-";
+  changeConnector(separator);
+});
+
+
 // Generate PassPhrase from API
 async function generatePassPhrase(){
   const amount = document.querySelector('.passSize').value;
@@ -39,8 +58,26 @@ async function generatePassPhrase(){
     output += `${word} `;
   });
 
+  output = output.trim();
 
-  pass.value = output.trim();
+  const underExist = document.querySelector('#second');
+  const dashesExist = document.querySelector('#third');
+  if(underExist.checked){
+    console.log('under checked');
+    output = output.split(" ");
+    output = output.join("_");
+    sessionStorage.setItem("oldSeparator", "_");
+
+  } else if(dashesExist.checked){
+    console.log('dashes');
+    output = output.split(" ");
+    output = output.join("-");
+    sessionStorage.setItem("oldSeparator", "-");
+  } else {
+    sessionStorage.setItem("oldSeparator", " ");
+  }
+
+  pass.value = output;
 
   document.querySelector(".uppercase-check").checked = false;
   document.querySelector(".numbers-check").checked = false;
@@ -198,4 +235,37 @@ function randomSpecialChar(){
   let specialchars = ['!', '$', '@'];
   let y = Math.floor(Math.random()* 3);
   return specialchars[y];
+}
+
+function changeConnector(separator){
+//  console.log("inside change connector");
+  const spacesExist = document.querySelector('#first');
+  const undersExist = document.querySelector('#second');
+  const dashesExist = document.querySelector('#third');
+
+  // get input
+  let input = pass.value;
+  let oldSep = sessionStorage.getItem('oldSeparator');
+
+  // split with current connector
+  if (spacesExist.checked){
+    input = input.split(oldSep);
+
+  } else if (undersExist.checked){
+    input = input.split(oldSep);
+
+  } else if (dashesExist.checked){
+    input = input.split(oldSep);
+
+  }
+
+  // join with updated connector
+  input = input.join(separator);
+
+  // set to pass value
+  pass.value = input;
+  
+
+  sessionStorage.setItem('oldSeparator', separator);
+
 }
