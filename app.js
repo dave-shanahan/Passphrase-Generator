@@ -48,7 +48,8 @@ document.querySelector("#third").addEventListener('change', () => {
 // Generate PassPhrase from API
 async function generatePassPhrase(){
   const amount = document.querySelector('.passSize').value;
-
+  
+  //  const words = await fetch(`http://localhost:3000/?count=${amount}`);   
   const words = await fetch(`https://random-word-api.herokuapp.com/word?number=${amount}`);
 
   const wordsResponse = await words.json();
